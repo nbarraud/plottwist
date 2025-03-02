@@ -1,0 +1,31 @@
+---
+description: Logging Guidelines
+globs: *
+---
+# Functions
+- Use `debugLog` for information, `errorLog` for errors
+- First parameter: current function name as string
+- Messages: concise, descriptive, with relevant metrics
+
+# Style
+- Use present progressive verbs ("Processing", "Generating")
+- Include counts when applicable ("Processing 5 files")
+- For batches, include progress ("Processing batch 1/5")
+- For errors, include context (file path, specific error)
+- Separate logs from code with empty lines for readability
+
+# Hierarchy
+- Avoid redundant logging between parent and child functions
+- Log at the level where work is being done
+- Parent functions: log high-level operations
+- Child functions: log details
+
+# Examples
+```typescript
+// Debug logs
+debugLog("functionName", `Processing ${items.length} files`);
+debugLog("functionName", `Found ${results.length} results`);
+
+// Error logs
+errorLog("functionName", `Error processing file: ${filePath}`, error);
+``` 

@@ -1,0 +1,1216 @@
+{
+    "excludes":
+    [
+        "**/*-lock.json",
+        "**/node_modules",
+        "**/dist",
+        "**/build",
+        "**/.git"
+    ],
+
+    "plugins":
+    [
+        "https://plugins.dprint.dev/typescript-0.93.4.wasm"
+    ],
+
+    "typescript":
+    {
+        // The width of a line the printer will try to stay under. Note that the printer may exceed this width in certain cases.
+        "lineWidth": 999,
+
+        // The number of columns for an indent.
+        "indentWidth": 4,
+
+        // Whether to use tabs (true) or spaces (false).
+        // Possible values:
+        //   true: Uses tabs for indentation.
+        //   false: Uses spaces for indentation.
+        "useTabs": false,
+
+        // How semi-colons should be used.
+        // Possible values:
+        //   "always": Always uses semi-colons where applicable.
+        //   "prefer": Prefers semi-colons, but doesn't add one in certain scenarios such as for the last member of a single-line type literal.
+        //   "asi": Uses automatic semi-colon insertion. Only adds a semi-colon at the start of some expression statements when necessary. Read more: https://standardjs.com/rules.html#semicolons
+        "semiColons": "prefer",
+
+        // How to use single or double quotes.
+        // Possible values:
+        //   "alwaysDouble": Always uses double quotes.
+        //   "alwaysSingle": Always uses single quotes.
+        //   "preferDouble": Prefers using double quotes except in scenarios where the string contains more double quotes than single quotes.
+        //   "preferSingle": Prefers using single quotes except in scenarios where the string contains more single quotes than double quotes.
+        "quoteStyle": "alwaysDouble",
+
+        // Change when properties in objects are quoted.
+        // Possible values:
+        //   "asNeeded": Remove unnecessary quotes around property names.
+        //   "consistent": Same as 'asNeeded', but if one property requires quotes then quote them all.
+        //   "preserve": Preserve quotes around property names.
+        "quoteProps": "preserve",
+
+        // The kind of newline to use.
+        // Possible values:
+        //   "auto": For each file, uses the last newline kind found in the file.
+        //   "crlf": Uses carriage return, line feed.
+        //   "lf": Uses line feed.
+        //   "system": Uses the system standard (ex. crlf on Windows).
+        "newLineKind": "lf",
+
+        // If braces should be used or not.
+        // Possible values:
+        //   "maintain": Uses braces if they're used. Doesn't use braces if they're not used.
+        //   "whenNotSingleLine": Uses braces when the body is on a different line.
+        //   "always": Forces the use of braces. Will add them if they aren't used.
+        //   "preferNone": Forces no braces when the header is one line and body is one line. Otherwise forces braces.
+        "useBraces": "always",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "bracePosition": "nextLine",
+
+        // Where to place the expression of a statement that could possibly be on one line (ex. `if (true) console.log(5);`).
+        // Possible values:
+        //   "maintain": Maintains the position of the expression.
+        //   "sameLine": Forces the whole statement to be on one line.
+        //   "nextLine": Forces the expression to be on the next line.
+        "singleBodyPosition": "nextLine",
+
+        // Where to place the next control flow within a control flow statement.
+        // Possible values:
+        //   "maintain": Maintains the next control flow being on the next line or the same line.
+        //   "sameLine": Forces the next control flow to be on the same line.
+        //   "nextLine": Forces the next control flow to be on the next line.
+        "nextControlFlowPosition": "nextLine",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "trailingCommas": "never",
+
+        // Where to place the operator for expressions that span multiple lines.
+        // Possible values:
+        //   "maintain": Maintains the operator being on the next line or the same line.
+        //   "sameLine": Forces the operator to be on the same line.
+        //   "nextLine": Forces the operator to be on the next line.
+        "operatorPosition": "nextLine",
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "preferHanging": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "preferSingleLine": false,
+
+        // Top level configuration that sets the configuration to what is used in Deno.
+        // Possible values:
+        //   true
+        //   false
+        "deno": false,
+
+        // Whether to use parentheses around a single parameter in an arrow function.
+        // Possible values:
+        //   "force": Forces parentheses.
+        //   "maintain": Maintains the current state of the parentheses.
+        //   "preferNone": Prefers not using parentheses when possible.
+        "arrowFunction.useParentheses": "maintain",
+
+        // Whether to force a line per expression when spanning multiple lines.
+        // Possible values:
+        //   true: Formats with each part on a new line.
+        //   false: Maintains the line breaks as written by the programmer.
+        "binaryExpression.linePerExpression": false,
+
+        // If the end angle bracket of a jsx open element or self closing element should be on the same or next line when the attributes span multiple lines.
+        // Possible values:
+        //   "maintain": Maintains the position of the end angle bracket.
+        //   "sameLine": Forces the end angle bracket to be on the same line.
+        //   "nextLine": Forces the end angle bracket to be on the next line.
+        "jsx.bracketPosition": "nextLine",
+
+        // If the end angle bracket of a jsx open element or self closing element should be on the same or next line when the attributes span multiple lines.
+        // Possible values:
+        //   "maintain": Maintains the position of the end angle bracket.
+        //   "sameLine": Forces the end angle bracket to be on the same line.
+        //   "nextLine": Forces the end angle bracket to be on the next line.
+        "jsxOpeningElement.bracketPosition": "nextLine",
+
+        // If the end angle bracket of a jsx open element or self closing element should be on the same or next line when the attributes span multiple lines.
+        // Possible values:
+        //   "maintain": Maintains the position of the end angle bracket.
+        //   "sameLine": Forces the end angle bracket to be on the same line.
+        //   "nextLine": Forces the end angle bracket to be on the next line.
+        "jsxSelfClosingElement.bracketPosition": "nextLine",
+
+        // Forces newlines surrounding the content of JSX elements.
+        // Possible values:
+        //   true
+        //   false
+        "jsx.forceNewLinesSurroundingContent": false,
+
+        // How to use single or double quotes in JSX attributes.
+        // Possible values:
+        //   "preferDouble": Prefers using double quotes except in scenarios where the string contains more double quotes than single quotes.
+        //   "preferSingle": Prefers using single quotes except in scenarios where the string contains more single quotes than double quotes.
+        "jsx.quoteStyle": "preferDouble",
+
+        // Surrounds the top-most JSX element or fragment in parentheses when it spans multiple lines.
+        // Possible values:
+        //   "never": Never wrap JSX with parentheses.
+        //   "prefer": Prefer wrapping with parentheses in most scenarios, except in function arguments and JSX attributes.
+        //   "always": Always wrap JSX with parentheses if it spans multiple lines.
+        "jsx.multiLineParens": "prefer",
+
+        // Whether to force a line per expression when spanning multiple lines.
+        // Possible values:
+        //   true: Formats with each part on a new line.
+        //   false: Maintains the line breaks as written by the programmer.
+        "memberExpression.linePerExpression": true,
+
+        // The kind of separator to use in type literals.
+        // Possible values:
+        //   "semiColon": Use semi-colons.
+        //   "comma": Use commas.
+        "typeLiteral.separatorKind": "semiColon",
+
+        // The kind of separator to use in type literals.
+        // Possible values:
+        //   "semiColon": Use semi-colons.
+        //   "comma": Use commas.
+        "typeLiteral.separatorKind.singleLine": "semiColon",
+
+        // The kind of separator to use in type literals.
+        // Possible values:
+        //   "semiColon": Use semi-colons.
+        //   "comma": Use commas.
+        "typeLiteral.separatorKind.multiLine": "semiColon",
+
+        // How to space the members of an enum.
+        // Possible values:
+        //   "newLine": Forces a new line between members.
+        //   "blankLine": Forces a blank line between members.
+        //   "maintain": Maintains whether a newline or blankline is used.
+        "enumDeclaration.memberSpacing": "maintain",
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "arguments.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "arrayExpression.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "arrayPattern.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "catchClause.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "doWhileStatement.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "forInStatement.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "forOfStatement.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "forStatement.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "ifStatement.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "parameters.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "parenExpression.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "switchStatement.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "tupleType.spaceAround": false,
+
+        // Whether to place spaces around enclosed expressions.
+        // Possible values:
+        //   true: Ex. `myFunction( true )`
+        //   false: Ex. `myFunction(true)`
+        "whileStatement.spaceAround": false,
+
+        // Whether to add a space surrounding the properties of single line object-like nodes.
+        // Possible values:
+        //   true: Ex. `{ key: value }`
+        //   false: Ex. `{key: value}`
+        "spaceSurroundingProperties": true,
+
+        // Whether to add a space surrounding the properties of a single line object expression.
+        // Possible values:
+        //   true: Ex. `{ key: value }`
+        //   false: Ex. `{key: value}`
+        "objectExpression.spaceSurroundingProperties": true,
+
+        // Whether to add a space surrounding the properties of a single line object pattern.
+        // Possible values:
+        //   true: Ex. `{ key: value } = obj`
+        //   false: Ex. `{key: value} = obj`
+        "objectPattern.spaceSurroundingProperties": true,
+
+        // Whether to add a space surrounding the properties of a single line type literal.
+        // Possible values:
+        //   true: Ex. `type Test = { key: string }`
+        //   false: Ex. `type Test = {key: string}`
+        "typeLiteral.spaceSurroundingProperties": true,
+
+        // Whether to surround the operator in a binary expression with spaces.
+        // Possible values:
+        //   true: Ex. `1 + 2`
+        //   false: Ex. `1+2`
+        "binaryExpression.spaceSurroundingBitwiseAndArithmeticOperator": true,
+
+        // Forces a space after the double slash in a comment line.
+        // Possible values:
+        //   true: Ex. `//test` -> `// test`
+        //   false: Ex. `//test` -> `//test`
+        "commentLine.forceSpaceAfterSlashes": true,
+
+        // Whether to add a space before the parentheses of a constructor.
+        // Possible values:
+        //   true: Ex. `constructor ()`
+        //   false: Ex. `constructor()`
+        "constructor.spaceBeforeParentheses": false,
+
+        // Whether to add a space after the `new` keyword in a constructor type.
+        // Possible values:
+        //   true: Ex. `type MyClassCtor = new () => MyClass;`
+        //   false: Ex. `type MyClassCtor = new() => MyClass;`
+        "constructorType.spaceAfterNewKeyword": false,
+
+        // Whether to add a space after the `new` keyword in a construct signature.
+        // Possible values:
+        //   true: Ex. `new (): MyClass;`
+        //   false: Ex. `new(): MyClass;`
+        "constructSignature.spaceAfterNewKeyword": false,
+
+        // Whether to add a space after the `while` keyword in a do while statement.
+        // Possible values:
+        //   true: Ex. `do {
+        //   } while (condition);`
+        //   false: Ex. `do {
+        //   } while(condition);`
+        "doWhileStatement.spaceAfterWhileKeyword": true,
+
+        // Whether to add spaces around named exports in an export declaration.
+        // Possible values:
+        //   true: Ex. `export { SomeExport, OtherExport };`
+        //   false: Ex. `export {SomeExport, OtherExport};`
+        "exportDeclaration.spaceSurroundingNamedExports": true,
+
+        // Whether to add a space after the `for` keyword in a "for in" statement.
+        // Possible values:
+        //   true: Ex. `for (const prop in obj)`
+        //   false: Ex. `for(const prop in obj)`
+        "forInStatement.spaceAfterForKeyword": true,
+
+        // Whether to add a space after the `for` keyword in a "for of" statement.
+        // Possible values:
+        //   true: Ex. `for (const value of myArray)`
+        //   false: Ex. `for(const value of myArray)`
+        "forOfStatement.spaceAfterForKeyword": true,
+
+        // Whether to add a space after the `for` keyword in a "for" statement.
+        // Possible values:
+        //   true: Ex. `for (let i = 0; i < 5; i++)`
+        //   false: Ex. `for(let i = 0; i < 5; i++)`
+        "forStatement.spaceAfterForKeyword": true,
+
+        // Whether to add a space after the semi-colons in a "for" statement.
+        // Possible values:
+        //   true: Ex. `for (let i = 0; i < 5; i++)`
+        //   false: Ex. `for (let i = 0;i < 5;i++)`
+        "forStatement.spaceAfterSemiColons": true,
+
+        // Whether to add a space before the parentheses of a function declaration.
+        // Possible values:
+        //   true: Ex. `function myFunction ()`
+        //   false: Ex. `function myFunction()`
+        "functionDeclaration.spaceBeforeParentheses": false,
+
+        // Whether to add a space before the parentheses of a function expression.
+        // Possible values:
+        //   true: Ex. `function<T> ()`
+        //   false: Ex. `function<T>()`
+        "functionExpression.spaceBeforeParentheses": false,
+
+        // Whether to add a space after the function keyword of a function expression.
+        // Possible values:
+        //   true: Ex. `function <T>()`
+        //   false: Ex. `function<T>()`
+        "functionExpression.spaceAfterFunctionKeyword": false,
+
+        // Whether to add a space before the parentheses of a get accessor.
+        // Possible values:
+        //   true: Ex. `get myProp ()`
+        //   false: Ex. `get myProp()`
+        "getAccessor.spaceBeforeParentheses": false,
+
+        // Whether to add a space after the `if` keyword in an "if" statement.
+        // Possible values:
+        //   true: Ex. `if (true)`
+        //   false: Ex. `if(true)`
+        "ifStatement.spaceAfterIfKeyword": true,
+
+        // Whether to add spaces around named imports in an import declaration.
+        // Possible values:
+        //   true: Ex. `import { SomeExport, OtherExport } from "my-module";`
+        //   false: Ex. `import {SomeExport, OtherExport} from "my-module";`
+        "importDeclaration.spaceSurroundingNamedImports": true,
+
+        // Whether to add a space before a JSX element's slash when self closing.
+        // Possible values:
+        //   true: Ex. `<Test />`
+        //   false: Ex. `<Test/>`
+        "jsxSelfClosingElement.spaceBeforeSlash": true,
+
+        // Whether to add a space surrounding the expression of a JSX container.
+        // Possible values:
+        //   true: Ex. `{ myValue }`
+        //   false: Ex. `{myValue}`
+        "jsxExpressionContainer.spaceSurroundingExpression": false,
+
+        // Whether to add a space before the parentheses of a method.
+        // Possible values:
+        //   true: Ex. `myMethod ()`
+        //   false: Ex. `myMethod()`
+        "method.spaceBeforeParentheses": false,
+
+        // Whether to add a space before the parentheses of a set accessor.
+        // Possible values:
+        //   true: Ex. `set myProp (value: string)`
+        //   false: Ex. `set myProp(value: string)`
+        "setAccessor.spaceBeforeParentheses": false,
+
+        // Whether to add a space before the literal in a tagged template.
+        // Possible values:
+        //   true: Ex. `html `<element />``
+        //   false: Ex. `html`<element />``
+        "taggedTemplate.spaceBeforeLiteral": false,
+
+        // Whether to add a space before the colon of a type annotation.
+        // Possible values:
+        //   true: Ex. `function myFunction() : string`
+        //   false: Ex. `function myFunction(): string`
+        "typeAnnotation.spaceBeforeColon": false,
+
+        // Whether to add a space before the expression in a type assertion.
+        // Possible values:
+        //   true: Ex. `<string> myValue`
+        //   false: Ex. `<string>myValue`
+        "typeAssertion.spaceBeforeExpression": true,
+
+        // Whether to add a space after the `while` keyword in a while statement.
+        // Possible values:
+        //   true: Ex. `while (true)`
+        //   false: Ex. `while(true)`
+        "whileStatement.spaceAfterWhileKeyword": true,
+
+        // The kind of sort ordering to use.
+        // Possible values:
+        //   "maintain": Maintains the current ordering.
+        //   "caseSensitive": Alphabetically and case sensitive.
+        //   "caseInsensitive": Alphabetically and case insensitive.
+        "module.sortImportDeclarations": "caseInsensitive",
+
+        // The kind of sort ordering to use.
+        // Possible values:
+        //   "maintain": Maintains the current ordering.
+        //   "caseSensitive": Alphabetically and case sensitive.
+        //   "caseInsensitive": Alphabetically and case insensitive.
+        "module.sortExportDeclarations": "caseInsensitive",
+
+        // The kind of sort ordering to use.
+        // Possible values:
+        //   "maintain": Maintains the current ordering.
+        //   "caseSensitive": Alphabetically and case sensitive.
+        //   "caseInsensitive": Alphabetically and case insensitive.
+        "exportDeclaration.sortNamedExports": "caseInsensitive",
+
+        // The kind of sort ordering to use for typed imports and exports.
+        // Possible values:
+        //   "first": Puts type-only named imports and exports first.
+        //   "last": Puts type-only named imports and exports last.
+        //   "none": Does not sort based on if a type-only named import or export.
+        "exportDeclaration.sortTypeOnlyExports": "none",
+
+        // The kind of sort ordering to use.
+        // Possible values:
+        //   "maintain": Maintains the current ordering.
+        //   "caseSensitive": Alphabetically and case sensitive.
+        //   "caseInsensitive": Alphabetically and case insensitive.
+        "importDeclaration.sortNamedImports": "caseInsensitive",
+
+        // The kind of sort ordering to use for typed imports and exports.
+        // Possible values:
+        //   "first": Puts type-only named imports and exports first.
+        //   "last": Puts type-only named imports and exports last.
+        //   "none": Does not sort based on if a type-only named import or export.
+        "importDeclaration.sortTypeOnlyImports": "none",
+
+        // The text to use for an ignore comment (ex. `// dprint-ignore`).
+        "ignoreNodeCommentText": "dprint-ignore",
+
+        // The text to use for a file ignore comment (ex. `// dprint-ignore-file`).
+        "ignoreFileCommentText": "dprint-ignore-file",
+
+        // If braces should be used or not.
+        // Possible values:
+        //   "maintain": Uses braces if they're used. Doesn't use braces if they're not used.
+        //   "whenNotSingleLine": Uses braces when the body is on a different line.
+        //   "always": Forces the use of braces. Will add them if they aren't used.
+        //   "preferNone": Forces no braces when the header is one line and body is one line. Otherwise forces braces.
+        "forInStatement.useBraces": "whenNotSingleLine",
+
+        // If braces should be used or not.
+        // Possible values:
+        //   "maintain": Uses braces if they're used. Doesn't use braces if they're not used.
+        //   "whenNotSingleLine": Uses braces when the body is on a different line.
+        //   "always": Forces the use of braces. Will add them if they aren't used.
+        //   "preferNone": Forces no braces when the header is one line and body is one line. Otherwise forces braces.
+        "forOfStatement.useBraces": "whenNotSingleLine",
+
+        // If braces should be used or not.
+        // Possible values:
+        //   "maintain": Uses braces if they're used. Doesn't use braces if they're not used.
+        //   "whenNotSingleLine": Uses braces when the body is on a different line.
+        //   "always": Forces the use of braces. Will add them if they aren't used.
+        //   "preferNone": Forces no braces when the header is one line and body is one line. Otherwise forces braces.
+        "forStatement.useBraces": "whenNotSingleLine",
+
+        // If braces should be used or not.
+        // Possible values:
+        //   "maintain": Uses braces if they're used. Doesn't use braces if they're not used.
+        //   "whenNotSingleLine": Uses braces when the body is on a different line.
+        //   "always": Forces the use of braces. Will add them if they aren't used.
+        //   "preferNone": Forces no braces when the header is one line and body is one line. Otherwise forces braces.
+        "ifStatement.useBraces": "whenNotSingleLine",
+
+        // If braces should be used or not.
+        // Possible values:
+        //   "maintain": Uses braces if they're used. Doesn't use braces if they're not used.
+        //   "whenNotSingleLine": Uses braces when the body is on a different line.
+        //   "always": Forces the use of braces. Will add them if they aren't used.
+        //   "preferNone": Forces no braces when the header is one line and body is one line. Otherwise forces braces.
+        "whileStatement.useBraces": "whenNotSingleLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "arrowFunction.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "classDeclaration.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "classExpression.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "constructor.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "doWhileStatement.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "enumDeclaration.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "forInStatement.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "forOfStatement.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "forStatement.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "functionDeclaration.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "functionExpression.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "getAccessor.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "ifStatement.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "interfaceDeclaration.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "moduleDeclaration.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "method.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "setAccessor.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "staticBlock.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "switchStatement.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "switchCase.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "tryStatement.bracePosition": "nextLine",
+
+        // Where to place the opening brace.
+        // Possible values:
+        //   "maintain": Maintains the brace being on the next line or the same line.
+        //   "sameLine": Forces the brace to be on the same line.
+        //   "nextLine": Forces the brace to be on the next line.
+        //   "sameLineUnlessHanging": Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line.
+        "whileStatement.bracePosition": "nextLine",
+
+        // Where to place the expression of a statement that could possibly be on one line (ex. `if (true) console.log(5);`).
+        // Possible values:
+        //   "maintain": Maintains the position of the expression.
+        //   "sameLine": Forces the whole statement to be on one line.
+        //   "nextLine": Forces the expression to be on the next line.
+        "forInStatement.singleBodyPosition": "nextLine",
+
+        // Where to place the expression of a statement that could possibly be on one line (ex. `if (true) console.log(5);`).
+        // Possible values:
+        //   "maintain": Maintains the position of the expression.
+        //   "sameLine": Forces the whole statement to be on one line.
+        //   "nextLine": Forces the expression to be on the next line.
+        "forOfStatement.singleBodyPosition": "nextLine",
+
+        // Where to place the expression of a statement that could possibly be on one line (ex. `if (true) console.log(5);`).
+        // Possible values:
+        //   "maintain": Maintains the position of the expression.
+        //   "sameLine": Forces the whole statement to be on one line.
+        //   "nextLine": Forces the expression to be on the next line.
+        "forStatement.singleBodyPosition": "nextLine",
+
+        // Where to place the expression of a statement that could possibly be on one line (ex. `if (true) console.log(5);`).
+        // Possible values:
+        //   "maintain": Maintains the position of the expression.
+        //   "sameLine": Forces the whole statement to be on one line.
+        //   "nextLine": Forces the expression to be on the next line.
+        "ifStatement.singleBodyPosition": "nextLine",
+
+        // Where to place the expression of a statement that could possibly be on one line (ex. `if (true) console.log(5);`).
+        // Possible values:
+        //   "maintain": Maintains the position of the expression.
+        //   "sameLine": Forces the whole statement to be on one line.
+        //   "nextLine": Forces the expression to be on the next line.
+        "whileStatement.singleBodyPosition": "nextLine",
+
+        // Where to place the next control flow within a control flow statement.
+        // Possible values:
+        //   "maintain": Maintains the next control flow being on the next line or the same line.
+        //   "sameLine": Forces the next control flow to be on the same line.
+        //   "nextLine": Forces the next control flow to be on the next line.
+        "ifStatement.nextControlFlowPosition": "nextLine",
+
+        // Where to place the next control flow within a control flow statement.
+        // Possible values:
+        //   "maintain": Maintains the next control flow being on the next line or the same line.
+        //   "sameLine": Forces the next control flow to be on the same line.
+        //   "nextLine": Forces the next control flow to be on the next line.
+        "tryStatement.nextControlFlowPosition": "nextLine",
+
+        // Where to place the next control flow within a control flow statement.
+        // Possible values:
+        //   "maintain": Maintains the next control flow being on the next line or the same line.
+        //   "sameLine": Forces the next control flow to be on the same line.
+        //   "nextLine": Forces the next control flow to be on the next line.
+        "doWhileStatement.nextControlFlowPosition": "nextLine",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "arguments.trailingCommas": "never",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "parameters.trailingCommas": "never",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "arrayExpression.trailingCommas": "never",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "arrayPattern.trailingCommas": "never",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "enumDeclaration.trailingCommas": "never",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "exportDeclaration.trailingCommas": "never",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "importDeclaration.trailingCommas": "never",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "objectExpression.trailingCommas": "never",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "objectPattern.trailingCommas": "never",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "tupleType.trailingCommas": "never",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "typeLiteral.trailingCommas": "never",
+
+        // If trailing commas should be used.
+        // Possible values:
+        //   "never": Trailing commas should not be used.
+        //   "always": Trailing commas should always be used.
+        //   "onlyMultiLine": Trailing commas should only be used in multi-line scenarios.
+        "typeParameters.trailingCommas": "never",
+
+        // Where to place the operator for expressions that span multiple lines.
+        // Possible values:
+        //   "maintain": Maintains the operator being on the next line or the same line.
+        //   "sameLine": Forces the operator to be on the same line.
+        //   "nextLine": Forces the operator to be on the next line.
+        "binaryExpression.operatorPosition": "nextLine",
+
+        // Where to place the operator for expressions that span multiple lines.
+        // Possible values:
+        //   "maintain": Maintains the operator being on the next line or the same line.
+        //   "sameLine": Forces the operator to be on the same line.
+        //   "nextLine": Forces the operator to be on the next line.
+        "conditionalExpression.operatorPosition": "nextLine",
+
+        // Where to place the operator for expressions that span multiple lines.
+        // Possible values:
+        //   "maintain": Maintains the operator being on the next line or the same line.
+        //   "sameLine": Forces the operator to be on the same line.
+        //   "nextLine": Forces the operator to be on the next line.
+        "conditionalType.operatorPosition": "nextLine",
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   "always": Always prefers hanging regardless of the number of elements.
+        //   "onlySingleItem": Only prefers hanging if there is a single item.
+        //   "never": Never prefers hanging.
+        "arguments.preferHanging": "never",
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   "always": Always prefers hanging regardless of the number of elements.
+        //   "onlySingleItem": Only prefers hanging if there is a single item.
+        //   "never": Never prefers hanging.
+        "arrayExpression.preferHanging": "never",
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "arrayPattern.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "doWhileStatement.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "exportDeclaration.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "extendsClause.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "forInStatement.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "forOfStatement.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "forStatement.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "ifStatement.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "implementsClause.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "importDeclaration.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "jsxAttributes.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "objectExpression.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "objectPattern.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   "always": Always prefers hanging regardless of the number of elements.
+        //   "onlySingleItem": Only prefers hanging if there is a single item.
+        //   "never": Never prefers hanging.
+        "parameters.preferHanging": "never",
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "sequenceExpression.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "switchStatement.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   "always": Always prefers hanging regardless of the number of elements.
+        //   "onlySingleItem": Only prefers hanging if there is a single item.
+        //   "never": Never prefers hanging.
+        "tupleType.preferHanging": "never",
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "typeLiteral.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   "always": Always prefers hanging regardless of the number of elements.
+        //   "onlySingleItem": Only prefers hanging if there is a single item.
+        //   "never": Never prefers hanging.
+        "typeParameters.preferHanging": "never",
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "unionAndIntersectionType.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "variableStatement.preferHanging": false,
+
+        // Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.
+        // Possible values:
+        //   true
+        //   false
+        "whileStatement.preferHanging": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "arrayExpression.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "arrayPattern.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "arguments.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "binaryExpression.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "computed.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "conditionalExpression.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "conditionalType.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "decorators.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "exportDeclaration.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "forStatement.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "importDeclaration.preferSingleLine": true,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "jsxAttributes.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "jsxElement.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "mappedType.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "memberExpression.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "objectExpression.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "objectPattern.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "parameters.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "parentheses.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "tupleType.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "typeLiteral.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "typeParameters.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "unionAndIntersectionType.preferSingleLine": false,
+
+        // If code should revert back from being on multiple lines to being on a single line when able.
+        // Possible values:
+        //   true
+        //   false
+        "variableStatement.preferSingleLine": false,
+
+        // If code should be forced to be on a single line if able.
+        // Possible values:
+        //   true
+        //   false
+        "exportDeclaration.forceSingleLine": false,
+
+        // If code should be forced to be on a single line if able.
+        // Possible values:
+        //   true
+        //   false
+        "importDeclaration.forceSingleLine": false,
+
+        // If code import/export specifiers should be forced to be on multiple lines.
+        // Possible values:
+        //   "always"
+        //   "never"
+        //   "whenMultiple": Force multiple lines only if importing more than one thing.
+        "exportDeclaration.forceMultiLine": "never",
+
+        // If code import/export specifiers should be forced to be on multiple lines.
+        // Possible values:
+        //   "always"
+        //   "never"
+        //   "whenMultiple": Force multiple lines only if importing more than one thing.
+        "importDeclaration.forceMultiLine": "never"
+    }
+}
