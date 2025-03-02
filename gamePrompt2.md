@@ -37,7 +37,7 @@ Option 1: "Try to stay calm and assess the situation."
 
 Option 2: "Demand an explanation immediately!"
 
-Response format is a JSON with the parameters: dialogue, choices, location. dialogue is an array with of text and speaker (Self / Narrator / Character) with 1 to 3 length. 
+Response format is a JSON with the parameters: dialogue, choices, location. dialogue is an array of text and speaker (Self / Narrator / Character) in visual novel format with 1 to 3 length. 
 
 The text of the books is: On glancing over my notes of the seventy odd cases in which I have during the last eight years studied the methods of my friend Sherlock Holmes, I find many tragic, some comic, a large number merely strange, but none commonplace; for, working as he did rather for the love of his art than for the acquirement of wealth, he refused to associate himself with any investigation which did not tend towards the unusual, and even the fantastic. Of all these varied cases, however, I cannot recall any which presented more singular features than that which was associated with the well-known Surrey family of the Roylotts of Stoke Moran. The events in question occurred in the early days of my association with Holmes, when we were sharing rooms as bachelors in Baker Street. It is possible that I might have placed them upon record before, but a promise of secrecy was made at the time, from which I have only been freed during the last month by the untimely death of the lady to whom the pledge was given. It is perhaps as well that the facts should now come to light, for I have reasons to know that there are widespread rumours as to the death of Dr. Grimesby Roylott which tend to make the matter even more terrible than the truth.
 
@@ -546,4 +546,4 @@ Such are the true facts of the death of Dr. Grimesby Roylott, of Stoke Moran. It
 "And also with the result of causing it to turn upon its master at the other side. Some of the blows of my cane came home and roused its snakish temper, so that it flew upon the first person it saw. In this way I am no doubt indirectly responsible for Dr. Grimesby Roylott's death, and I cannot say that it is likely to weigh very heavily upon my conscience." 
 
 
-Now, process the following novel text starting at the beginning with Narration
+Now, process the following novel text starting at the beginning with  1 Narration Dialogue
