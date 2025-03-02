@@ -1,7 +1,7 @@
 /**
- * API Client for interacting with the BookQuest backend
+ * API Client for interacting with the PlotTwist backend
  */
-class BookQuestAPI {
+class PlotTwistAPI {
     constructor(baseUrl = '') {
         // Point to the FastAPI backend
         this.baseUrl = baseUrl || 'http://localhost:8000';
@@ -304,4 +304,4 @@ hideLoadingIndicator() {
 }
 
 // Create global API client instance
-const apiClient = new BookQuestAPI();
+const apiClient = new PlotTwistAPI();

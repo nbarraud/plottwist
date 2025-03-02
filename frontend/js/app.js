@@ -1,7 +1,7 @@
 /**
- * Main application logic for BookQuest
+ * Main application logic for PlotTwist
  */
-class BookQuestApp {
+class PlotTwistApp {
     constructor() {
         // DOM elements
         this.bookshelfScreen = document.getElementById('bookshelfScreen');
@@ -666,5 +666,5 @@ class BookQuestApp {
 
 // Initialize the app when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    window.bookQuestApp = new BookQuestApp();
+    window.PlotTwistApp = new PlotTwistApp();
 });

@@ -20,7 +20,7 @@ from book_analyzer import analyze_book
 from vn_generator import generate_visual_novel
 
 # Create the FastAPI app - THIS WAS MISSING
-app = FastAPI(title="BookQuest API", description="API for converting books to visual novels")
+app = FastAPI(title="PlotTwist API", description="API for converting books to visual novels")
 
 # Enable CORS
 app.add_middleware(
