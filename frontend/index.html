@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookQuest - Turn Books into Adventures</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Bookshelf Screen -->
+    <div class="bookshelf-screen" id="bookshelfScreen">
+        <h1 class="app-title">BookQuest</h1>
+        <div class="bookshelf" id="bookshelf">
+            <div class="upload-book" id="uploadBookBtn">
+                <div class="upload-icon">+</div>
+                <p>Upload New Book</p>
+            </div>
+            <!-- Books will be added here dynamically -->
+        </div>
+    </div>
+    
+    <!-- Processing Screen -->
+    <div class="processing-screen hidden" id="processingScreen">
+        <div class="loading-container">
+            <div class="book-loading">
+                <div class="cover"></div>
+                <div class="page"></div>
+                <div class="page"></div>
+                <div class="page"></div>
+                <div class="page"></div>
+                <div class="page"></div>
+            </div>
+        </div>
+        <div class="processing-status" id="processingStatus">Analyzing book structure...</div>
+        <div class="progress-bar">
+            <div class="progress" id="progressBar"></div>
+        </div>
+    </div>
+    
+    <!-- Visual Novel Screen -->
+    <div class="vn-screen hidden" id="vnScreen">
+        <div class="vn-background" id="vnBackground"></div>
+        <div class="vn-character-container" id="characterContainer">
+            <!-- Characters will be added here dynamically -->
+        </div>
+        <div class="vn-textbox">
+            <div class="vn-speaker" id="vnSpeaker">Character Name</div>
+            <div class="vn-text" id="vnText">Dialogue text will appear here...</div>
+            <div class="vn-choices hidden" id="vnChoices">
+                <!-- Choices will be added here dynamically -->
+            </div>
+            <div class="vn-continue" id="vnContinue">▼</div>
+        </div>
+        <div class="vn-controls">
+            <div class="vn-control-btn" id="vnHome" title="Return to Bookshelf">H</div>
+            <div class="vn-control-btn" id="vnSave" title="Save Game">S</div>
+            <div class="vn-control-btn" id="vnLoad" title="Load Game">L</div>
+            <div class="vn-control-btn" id="vnAuto" title="Auto Mode">A</div>
+            <div class="vn-control-btn" id="vnSkip" title="Skip Mode">►</div>
+        </div>
+    </div>
+    
+    <!-- Upload Modal -->
+    <div class="upload-modal hidden" id="uploadModal">
+        <div class="upload-form">
+            <button class="close-modal" id="closeModalBtn">×</button>
+            <h2>Upload a Book</h2>
+            <form id="bookUploadForm">
+                <div class="form-group">
+                    <label for="bookTitle">Book Title</label>
+                    <input type="text" id="bookTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookAuthor">Author</label>
+                    <input type="text" id="bookAuthor" required>
+                </div>
+                <div class="file-upload">
+                    <div class="upload-icon">📄</div>
+                    <p id="fileNameDisplay">Select PDF file</p>
+                    <input type="file" id="bookFile" accept=".pdf" required>
+                </div>
+                <button type="submit" class="submit-btn">Start Adventure</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Application Scripts -->
+    <script src="js/api-client.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
