@@ -4,7 +4,7 @@
 class PlotTwistAPI {
     constructor(baseUrl = '') {
         // Point to the FastAPI backend
-        this.baseUrl = baseUrl || 'http://localhost:8000';
+        this.baseUrl = baseUrl || 'https://plottwist-backend.onrender.com';
     }
 
     /**
