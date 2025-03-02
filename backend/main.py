@@ -171,6 +171,10 @@ async def process_book_task(book_id: str, file_path: str):
         import traceback
         traceback.print_exc()
 
+@app.get("/")
+async def root():
+    return {"message": "API is running"}
+    
 # Routes
 @app.post("/api/books/upload", response_model=Book)
 async def upload_book(
