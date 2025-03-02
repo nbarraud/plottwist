@@ -1,6 +1,6 @@
 FOR IMMEDIATE RELEASE
 
-Introducing [App Name]: Transform Any Novel into Your Personal Interactive Adventure—Now with Stunning Visuals!
+Introducing [App Name]: Transform Any Novel into Your Personal Interactive Adventure.
 
 [Date, City] — Imagine stepping into your favorite book, not just through words but vivid illustrations that come alive with each decision you make. With [App Name], readers can now turn any novel into an engaging, visually-rich, and interactive gaming experience. Play as the main character, make pivotal choices, and explore storylines accompanied by captivating visuals that dynamically reflect your unique journey.
 
