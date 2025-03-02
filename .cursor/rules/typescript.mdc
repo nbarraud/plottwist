@@ -1,0 +1,17 @@
+---
+description: Used for frontend and backend development in Typescript
+globs: *.ts, *.tsx
+---
+- Braces: Allman style (opening brace on new line).
+- Indentation: 4 spaces.
+- Strings: Double quotes.
+- Types: Use type definitions, avoid interfaces.
+- Architecture: Functional programming over classes.
+- Functions: Always declare return types.
+- Syntax: Use function declarations.
+- Iteration: Use "for" loops instead of forEach().
+- Nullability: Prefer undefined over null.
+- Type Safety: No "any", use explicit types.
+- Imports: keep them on one line.
+- Documentation: JSDoc for function signatures. Keep it clear and concise. Separate function description with an empty line.
+- Add packages in package.json + npm update, not via npm install.

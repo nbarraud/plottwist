@@ -1,0 +1,85 @@
+---
+description: Used for vitest tests
+globs: *.ts
+---
+## Best Practices
+
+1. **File Organization and Naming**  
+   - Name your test files with a `.test.ts` extension.  
+   - Co-locate test files next to their implementation files.
+
+2. **Test Structure**  
+   - Use Vitest’s global functions such as `describe`, `it`, and `expect` to structure tests.  
+   - Group related tests using `describe` blocks for clarity and maintainability.
+   - The tests should mirror the same order as the functions in the implementation files.
+
+3. **Test Clarity and Determinism**  
+   - Write small, focused tests that are deterministic.  
+   - Use meaningful test descriptions to clearly indicate what is being tested.
+
+## Example 1: Testing a Simple Sum Function
+
+This example shows a basic test for a `sum` function. Notice that the function and test callbacks are declared using function declarations with explicit return types.
+
+```typescript
+import { describe, it, expect } from "vitest";
+
+type SumFunction = (a: number, b: number) => number;
+
+function sum (a: number, b: number) : number
+{
+    return a + b;
+}
+
+describe("sum function", function () 
+{
+    it("should return the correct sum", function () 
+    {
+        const result: number = sum(2, 3);
+        expect(result).toBe(5);
+    });
+});
+```
+
+---
+
+## Example 2: Testing an Array Summation Function with Iteration
+
+In this example, a function calculates the total of an array using a `for` loop.
+
+```typescript
+import { describe, it, expect } from "vitest";
+
+type CalculateTotalFunction = (numbers: number[]) => number;
+
+function calculateTotal (numbers: number[]) : number
+{
+    let total: number = 0;
+    for (let i: number = 0; i < numbers.length; i++)
+    {
+        total += numbers[i];
+    }
+    return total;
+}
+
+describe("calculateTotal function", function () 
+{
+    it("should return the correct total for an array of numbers", function () 
+    {
+        const numbers: number[] = [1, 2, 3, 4];
+        const result: number = calculateTotal(numbers);
+        expect(result).toBe(10);
+    });
+});
+```
+
+## Additional Tips
+
+- **Setup and Teardown:**  
+  Use `beforeAll`, `afterAll`, `beforeEach`, and `afterEach` (declared as function declarations) to manage test setup and cleanup if needed.
+
+- **Avoid Side Effects:**  
+  Keep tests independent and stateless to ensure reliability.
+
+- **Descriptive Naming:**  
+  Name test cases and functions clearly so that if a test fails, it’s obvious what is wrong.

@@ -1,0 +1,18 @@
+---
+description: Used for frontend development in React
+globs: *.tsx
+---
+- Add an empty lines between components under the same parent.
+- Define props directly in the function signature using inline type annotations. Use a destructured object parameter followed by its type definition. Make props readonly. Example format:
+
+function MyComponent(
+    {
+        var1, 
+        var2
+    }: {
+        readonly var1: string; 
+        readonly var2: string;
+    }
+): React.ReactElement
+{
+}
