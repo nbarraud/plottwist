@@ -95,49 +95,49 @@ async def analyze_with_gemini(book_content: dict) -> dict:
     
     FORMAT YOUR RESPONSE AS A JSON OBJECT with this exact structure:
     
-    {
-      "characters": [
-        {
-          "id": "char_id",
-          "name": "Full Name",
-          "role": "Role in story",
-          "description": "Detailed physical description",
-          "personality": "Detailed personality traits",
-          "speech_patterns": "How they typically speak",
-          "motivations": "What drives them",
-          "relationships": "Connections to other characters",
-          "arc": "Character development through the story",
-          "importance": "high/medium/low"
-        }
-      ],
-      "settings": [
-        {
-          "id": "setting_id",
-          "name": "Setting Name",
-          "description": "Detailed physical description",
-          "atmosphere": "Mood and feeling of the place",
-          "significance": "Importance to the plot"
-        }
-      ],
-      "plot": {
+    {{
+    "characters": [
+        {{
+        "id": "char_id",
+        "name": "Full Name",
+        "role": "Role in story",
+        "description": "Detailed physical description",
+        "personality": "Detailed personality traits",
+        "speech_patterns": "How they typically speak",
+        "motivations": "What drives them",
+        "relationships": "Connections to other characters",
+        "arc": "Character development through the story",
+        "importance": "high/medium/low"
+        }}
+    ],
+    "settings": [
+        {{
+        "id": "setting_id",
+        "name": "Setting Name",
+        "description": "Detailed physical description",
+        "atmosphere": "Mood and feeling of the place",
+        "significance": "Importance to the plot"
+        }}
+    ],
+    "plot": {{
         "summary": "Comprehensive plot summary capturing all major elements",
         "central_conflict": "Main tension driving the story",
         "key_points": [
-          "First major plot point",
-          "Second major plot point",
-          "etc."
+        "First major plot point",
+        "Second major plot point",
+        "etc."
         ],
         "branching_points": [
-          {
+        {{
             "description": "Potential choice point",
             "options": ["Option 1", "Option 2", "Option 3"]
-          }
+        }}
         ]
-      },
-      "themes": ["theme1", "theme2", "etc."],
-      "symbols": ["symbol1", "symbol2", "etc."],
-      "tone": "Overall tone of the story"
-    }
+    }},
+    "themes": ["theme1", "theme2", "etc."],
+    "symbols": ["symbol1", "symbol2", "etc."],
+    "tone": "Overall tone of the story"
+    }}
     
     Focus on providing DEEP, RICH DETAILS for each element. No generalities or placeholders.
     """
