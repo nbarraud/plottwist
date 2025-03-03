@@ -4,9 +4,9 @@
 class PlotTwistAPI {
     constructor(baseUrl = '') {
         // Point to the FastAPI backend with a configurable URL
-        // Check if we have an environment variable (for production) or use a fallback logic
+        // Use the config value or fall back to provided URL or default
         this.baseUrl = baseUrl || 
-                      (window.BACKEND_URL) || 
+                      (window.APP_CONFIG && window.APP_CONFIG.BACKEND_URL) || 
                       'https://plottwist-backend.onrender.com';
                       
         console.log(`API Client initialized with backend URL: ${this.baseUrl}`);

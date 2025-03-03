@@ -6,11 +6,9 @@
     <title>PlotTwist - Turn Books into Adventures</title>
     <link rel="stylesheet" href="/css/styles.css">
 
-    <!-- Add the backend URL script here -->
-    <script>
-        // Make backend URL available to the application
-        window.BACKEND_URL = '{{ BACKEND_URL }}' || 'http://localhost:8000';
-    </script>
+
+    <!-- Load configuration before other scripts -->
+    <script src="/js/config.js"></script>
 </head>
 <body>
     <!-- Bookshelf Screen -->
