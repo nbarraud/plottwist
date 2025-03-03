@@ -30,10 +30,22 @@ body {
 .app-title {
     font-size: 3.5rem;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-weight: bold;
     color: #d4af37;
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.app-subtitle {
+    text-align: center;
+    color: #d4af37;
+    opacity: 0.9;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
 }
 
 .bookshelf {
@@ -48,57 +60,81 @@ body {
 }
 
 .book {
-    width: 140px;
-    height: 200px;
+    width: 200px;
+    height: 300px;
     position: relative;
-    transform-style: preserve-3d;
-    transform: rotateY(-10deg);
-    transition: transform 0.3s ease;
     cursor: pointer;
+    perspective: 1000px;
+    margin: 20px;
 }
 
-.book:hover {
-    transform: rotateY(0deg) scale(1.05);
+.book {
+    position: relative;
+}
+
+.book svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.book-page-svg {
+    opacity: 0;
+    z-index: 1;
+}
+
+.book:hover .book-page-svg {
+    opacity: 1;
+}
+
+.book-cover-svg {
+    transform-origin: 15% center;
+    transition: transform 0.8s ease;
+    transform: rotateY(-10deg);
+    z-index: 2;
+}
+
+.book:hover .book-cover-svg {
+    transform: rotateY(-100deg);
 }
 
 .book-spine {
-    position: absolute;
-    width: 30px;
-    height: 200px;
-    background: linear-gradient(90deg, #3c1518 0%, #69140e 30%, #a44200 100%);
-    transform: rotateY(90deg) translateZ(15px) translateX(-15px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    border-radius: 2px 0 0 2px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.book-spine h3 {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    font-size: 1rem;
-    color: #f3e9d2;
-    text-align: center;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-height: 170px;
+    fill: #69140e;
+    stroke: #3c1518;
+    stroke-width: 1;
 }
 
 .book-cover {
-    position: absolute;
-    width: 140px;
-    height: 200px;
-    background-color: #69140e;
-    border-radius: 0 2px 2px 0;
-    border: 1px solid #3c1518;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    display: flex;
+    fill: #69140e;
+    stroke: #3c1518;
+    stroke-width: 1;
+}
+
+.book-page {
+    fill: #fff;
+    stroke: #ddd;
+    stroke-width: 1;
+}
+
+.book-text {
+    fill: #333;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-size: 12px;
+}
+
+.book-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.spine-text {
+    fill: #f3e9d2;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-size: 12px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+}
     flex-direction: column;
     justify-content: space-between;
 }
@@ -111,8 +147,8 @@ body {
 }
 
 .upload-book {
-    width: 140px;
-    height: 200px;
+    width: 200px;
+    height: 300px;
     background-color: rgba(255, 255, 255, 0.1);
     border: 2px dashed #d4af37;
     border-radius: 5px;
@@ -129,7 +165,7 @@ body {
 }
 
 .upload-icon {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 10px;
     color: #d4af37;
 }

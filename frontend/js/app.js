@@ -229,21 +229,95 @@ class PlotTwistApp {
     /**
      * Add a book to the bookshelf
      */
+    getHashColor(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            hash = str.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        const c = (hash & 0x00FFFFFF).toString(16).toUpperCase();
+        return '#' + '00000'.substring(0, 6 - c.length) + c;
+    }
+
     addBookToShelf(book) {
-        const color = book.color || this.getRandomColor();
+        const color = book.color || this.getHashColor(book.title);
         
         const bookElement = document.createElement('div');
         bookElement.className = 'book';
-        bookElement.innerHTML = `
-            <div class="book-spine">
-                <h3>${book.title}</h3>
-            </div>
-            <div class="book-cover" style="background-color: ${color}">
-                <h3>${book.title}</h3>
-                <p>${book.author}</p>
-            </div>
+        
+        // Create the static page SVG
+        const pageSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        pageSvg.setAttribute('viewBox', '0 0 200 300');
+        pageSvg.classList.add('book-page-svg');
+        pageSvg.innerHTML = `
+            <defs>
+                <filter id="shadow-page-${book.id}" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                    <feOffset dx="2" dy="2"/>
+                    <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.3"/>
+                    </feComponentTransfer>
+                    <feMerge>
+                        <feMergeNode/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            
+            <!-- Static White Page -->
+            <rect x="45" y="7" width="145" height="286" rx="2" 
+                  fill="#fff" filter="url(#shadow-page-${book.id})"/>
+            <text class="page-text page-title" x="117" y="120" text-anchor="middle" fill="#333">
+                ${book.title}
+            </text>
+            <text class="page-text" x="117" y="150" text-anchor="middle" fill="#333">
+                by ${book.author}
+            </text>
+        `;
+
+        // Create the rotating cover SVG
+        const coverSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        coverSvg.setAttribute('viewBox', '0 0 200 300');
+        coverSvg.classList.add('book-cover-svg');
+        coverSvg.innerHTML = `
+            <defs>
+                <filter id="shadow-cover-${book.id}" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                    <feOffset dx="2" dy="2"/>
+                    <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.3"/>
+                    </feComponentTransfer>
+                    <feMerge>
+                        <feMergeNode/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            
+            <!-- Book Cover -->
+            <rect class="book-cover" x="45" y="0" width="155" height="300" rx="2" 
+                  fill="${color}" filter="url(#shadow-cover-${book.id})"/>
+            
+            <!-- Book Spine -->
+            <rect class="book-spine" x="0" y="0" width="45" height="300" rx="2" 
+                  fill="${color}"/>
+            
+            <!-- Spine Text -->
+            <text class="spine-text" x="22" y="150" text-anchor="middle" 
+                  transform="rotate(-90, 22, 150)" fill="#f3e9d2">
+                ${book.title}
+            </text>
+            
+            <!-- Cover Text -->
+            <foreignObject x="55" y="60" width="135" height="180">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #f3e9d2; font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;">
+                    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px; line-height: 1.2;">${book.title}</div>
+                    <div style="font-size: 16px;">by ${book.author}</div>
+                </div>
+            </foreignObject>
         `;
         
+        bookElement.appendChild(pageSvg);
+        bookElement.appendChild(coverSvg);
         bookElement.addEventListener('click', () => {
             this.startGame(book);
         });
