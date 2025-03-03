@@ -101,14 +101,10 @@ body {
 }
 
 .book-spine {
-    fill: #69140e;
-    stroke: #3c1518;
     stroke-width: 1;
 }
 
 .book-cover {
-    fill: #69140e;
-    stroke: #3c1518;
     stroke-width: 1;
 }
 
