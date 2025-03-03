@@ -3,15 +3,94 @@
  */
 class PlotTwistAPI {
     constructor(baseUrl = '') {
-        // Point to the FastAPI backend
-        this.baseUrl = baseUrl || 'https://plottwist-backend.onrender.com';
+        // Point to the FastAPI backend with a configurable URL
+        // Check if we have an environment variable (for production) or use a fallback logic
+        this.baseUrl = baseUrl || 
+                      (window.BACKEND_URL) || 
+                      'https://plottwist-backend.onrender.com';
+                      
+        console.log(`API Client initialized with backend URL: ${this.baseUrl}`);
+        
+        // Add a validation check for the URL
+        this.validateBackendConnection();
     }
 
     /**
-     * Upload a new book to be processed
-     * @param {FormData} formData - Form data containing title, author, and file
-     * @returns {Promise<Object>} - Book object with ID and status
+     * Validate the backend connection is working
+     * @returns {Promise<boolean>} - True if connection is successful
      */
+    async validateBackendConnection() {
+        try {
+            // Try to connect to the root endpoint which should return API status
+            const response = await fetch(`${this.baseUrl}/`, {
+                method: 'GET',
+                // Add a short timeout to fail fast if unreachable
+                signal: AbortSignal.timeout(5000)
+            });
+            
+            if (response.ok) {
+                console.log('✅ Successfully connected to backend API');
+                return true;
+            } else {
+                console.warn(`⚠️ Backend responded with status ${response.status}: ${response.statusText}`);
+                return false;
+            }
+        } catch (error) {
+            console.error('❌ Failed to connect to backend:', error);
+            // Show a user-friendly message on the page
+            this.showConnectionError();
+            return false;
+        }
+    }
+    
+    /**
+     * Display a user-friendly connection error message
+     */
+    showConnectionError() {
+        // Create error message element if it doesn't exist
+        const errorContainer = document.getElementById('api-error-container') || 
+            (() => {
+                const container = document.createElement('div');
+                container.id = 'api-error-container';
+                container.style.position = 'fixed';
+                container.style.top = '0';
+                container.style.left = '0';
+                container.style.right = '0';
+                container.style.background = '#f8d7da';
+                container.style.color = '#721c24';
+                container.style.padding = '10px';
+                container.style.textAlign = 'center';
+                container.style.zIndex = '9999';
+                document.body.prepend(container);
+                return container;
+            })();
+            
+        errorContainer.innerHTML = `
+            <strong>Connection Error:</strong> 
+            Unable to connect to the backend service at ${this.baseUrl}. 
+            The service may be down or the URL may be incorrect.
+            <button id="retry-connection" style="margin-left: 10px; padding: 5px 10px;">
+                Retry Connection
+            </button>
+        `;
+        
+        // Add retry button functionality
+        document.getElementById('retry-connection').addEventListener('click', async () => {
+            errorContainer.innerHTML = 'Attempting to reconnect...';
+            const success = await this.validateBackendConnection();
+            if (success) {
+                errorContainer.style.background = '#d4edda';
+                errorContainer.style.color = '#155724';
+                errorContainer.innerHTML = 'Connection restored! Refreshing page...';
+                setTimeout(() => location.reload(), 1500);
+            } else {
+                this.showConnectionError();
+            }
+        });
+    }
+
+    // Rest of your API methods remain unchanged...
+
     async uploadBook(formData) {
         try {
             const response = await fetch(`${this.baseUrl}/api/books/upload`, {
@@ -30,10 +109,6 @@ class PlotTwistAPI {
         }
     }
 
-    /**
-     * Get list of all books
-     * @returns {Promise<Array>} - Array of book objects
-     */
     async getBooks() {
         try {
             const response = await fetch(`${this.baseUrl}/api/books`);
