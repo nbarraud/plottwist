@@ -9,7 +9,7 @@
     <!-- Add the backend URL script here -->
     <script>
         // Make backend URL available to the application
-        window.BACKEND_URL = '{{ BACKEND_URL }}';
+        window.BACKEND_URL = '{{ BACKEND_URL }}' || 'http://localhost:8000';
     </script>
 </head>
 <body>
