@@ -4,7 +4,9 @@
 
 ## 📚 Transform Books into Interactive Visual Novels
 
-PlotTwist is a 1-day hackathon project created for MIT Sundai Club that turns any book into an interactive visual novel experience. Upload your favorite book and watch it transform into a visual novel with AI-generated scenes, characters, and dialogue.
+PlotTwist is a web app that turns any book into an interactive visual novel experience. Upload your favorite book and watch it transform into a visual novel with AI-generated scenes, characters, and dialogue.
+
+My team submitted this for an MIT Sundai Club hackathon with the theme: Games.
 
 ## ✨ Features
 
