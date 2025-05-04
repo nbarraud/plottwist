@@ -4,26 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlotTwist - Turn Books into Adventures</title>
-    <link rel="stylesheet" href="/css/styles.css">
-
-
-    <!-- Load configuration before other scripts -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="/js/config.js"></script>
 </head>
 <body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <img src="images/pic1.jpg" alt="Books and Adventure" class="header-image" style="width: 100%; height: auto; max-height: 200px;">
+    </header>
+
     <!-- Bookshelf Screen -->
-    <div class="bookshelf-screen" id="bookshelfScreen">
-        <h1 class="app-title">PlotTwist</h1>
-        <p class="app-subtitle">Transform your favorite books into interactive visual novels.<br>Upload a book to begin your adventure!</p>
-        <div class="bookshelf" id="bookshelf">
-            <div class="upload-book" id="uploadBookBtn">
-                <div class="upload-icon">+</div>
-                <p>Upload New Book</p>
-            </div>
-            <!-- Books will be added here dynamically -->
+<div class="bookshelf-screen" id="bookshelfScreen">
+    <p class="app-subtitle">Bring your favorite books to life as interactive visual novels. Upload a book to start your adventure!</p>
+    <h2 class="section-title">Your Bookshelf</h2>
+    <div class="bookshelf" id="bookshelf">
+        <div class="upload-book" id="uploadBookBtn">
+            <div class="upload-icon">+</div>
+            <p class="upload-text">Upload New Book</p>
         </div>
+        <!-- Books will be added here dynamically -->
     </div>
-    
+</div>
+
     <!-- Processing Screen -->
     <div class="processing-screen hidden" id="processingScreen">
         <div class="loading-container">
@@ -41,19 +45,15 @@
             <div class="progress" id="progressBar"></div>
         </div>
     </div>
-    
+
     <!-- Visual Novel Screen -->
     <div class="vn-screen hidden" id="vnScreen">
         <div class="vn-background" id="vnBackground"></div>
-        <div class="vn-character-container" id="characterContainer">
-            <!-- Characters will be added here dynamically -->
-        </div>
+        <div class="vn-character-container" id="characterContainer"></div>
         <div class="vn-textbox">
             <div class="vn-speaker" id="vnSpeaker">Character Name</div>
             <div class="vn-text" id="vnText">Dialogue text will appear here...</div>
-            <div class="vn-choices hidden" id="vnChoices">
-                <!-- Choices will be added here dynamically -->
-            </div>
+            <div class="vn-choices hidden" id="vnChoices"></div>
             <div class="vn-continue" id="vnContinue">▼</div>
         </div>
         <div class="vn-controls">
@@ -64,7 +64,7 @@
             <div class="vn-control-btn" id="vnSkip" title="Skip Mode">►</div>
         </div>
     </div>
-    
+
     <!-- Upload Modal -->
     <div class="upload-modal hidden" id="uploadModal">
         <div class="upload-form">
@@ -88,9 +88,55 @@
             </form>
         </div>
     </div>
-    
+
+    <footer class="footer">
+        <p>© 2025 PlotTwist. All rights reserved.</p>
+    </footer>
+
     <!-- Application Scripts -->
     <script src="/js/api-client.js"></script>
     <script src="/js/app.js"></script>
+
+    <!-- Footer Image Section -->
+    <div class="footer-image-container">
+        <img src="images/pic2.jpg" alt="Footer Image" class="footer-image" style="width: 100%; height: auto; max-height: 200px;">
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 PlotTwist. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(135deg, var(--background-dark), var(--background-medium));
+    color: var(--text-light);
+    height: auto;
+    font-size: 14px; /* Adjust font size as "Press Start 2P" is pixelated and smaller */
+    overflow: auto;
+}
+
+.app-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.app-subtitle {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--text-medium);
+    margin-bottom: 30px;
+}
+</style>
